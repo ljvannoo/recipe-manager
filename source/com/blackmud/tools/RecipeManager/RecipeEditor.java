@@ -363,13 +363,19 @@ public class RecipeEditor extends JPanel {
 
 					for(int i = 0; i < result.size(); i++) {
 						vendor = new Vendor();
-						vendor.setVendorVnum(result.getLong(i, "vendor_vnum"));
-						vendor.setCost(result.getLong(i, "cost"));
-						vendor.setMinLevel(result.getInt(i, "min_level"));
-						vendor.setAllowedClasses(result.getString(i, "allowed_classes"));
-						vendor.setVendorShortDesc(manager.getNPCManager().getNPC(vendor.getVendorVnum()).getShortDesc());
-						
-						model.addElement(vendor);
+						try {
+							vendor.setVendorVnum(result.getLong(i, "vendor_vnum"));
+							vendor.setCost(result.getLong(i, "cost"));
+							vendor.setMinLevel(result.getInt(i, "min_level"));
+							vendor.setAllowedClasses(result.getString(i, "allowed_classes"));
+
+								vendor.setVendorShortDesc(manager.getNPCManager().getNPC(vendor.getVendorVnum()).getShortDesc());
+
+
+							model.addElement(vendor);
+						} catch(NullPointerException e) {
+							System.out.println("ERROR: Failed to load vendor #" + vendor.getVendorVnum());
+						}
 //						System.out.println("Loading recipe #"+result.getInt(i, "id")+" - "+result.getString(i, "title"));
 					}
 					getVendorList().setModel(model);
