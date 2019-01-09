@@ -1,0 +1,3 @@
+jar cvf RecipeManager.jar ..\webfiles\MANIFEST.MF *
+jarsigner -keystore blackmud.ks RecipeManager.jar blackmud
+pscp RecipeManager.jar delvern@blackmud.delvern.com:blackmud.delvern.com/recipemanager/

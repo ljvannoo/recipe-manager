@@ -1,0 +1,13 @@
+**/.DS_Store
+.idea
+.project
+.classpath
+.settings
+**/CVS
+.cvsignore
+classes
+out
+build
+*.iml
+
+webfiles/*.jar

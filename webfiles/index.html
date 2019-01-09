@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title>Recipe Manager Launcher</title>
+  </head>
+  <body>
+
+  	<SCRIPT LANGUAGE="JavaScript">
+	var javawsInstalled = 0;
+	var javaws12Installed = 0;
+	var javaws142Installed=0;
+	isIE = "false";
+	if (navigator.mimeTypes && navigator.mimeTypes.length) {
+	   x = navigator.mimeTypes['application/x-java-jnlp-file'];
+	   if (x) {
+	      javawsInstalled = 1;
+	      javaws12Installed=1;
+	      javaws142Installed=1;
+	   }
+	}
+	else {
+	   isIE = "true";
+	}
+	</SCRIPT>
+
+	<SCRIPT LANGUAGE="VBScript">
+	on error resume next
+	If isIE = "true" Then
+	  If Not(IsObject(CreateObject("JavaWebStart.isInstalled"))) Then
+	     javawsInstalled = 0
+	  Else
+	     javawsInstalled = 1
+	  End If
+	  If Not(IsObject(CreateObject("JavaWebStart.isInstalled.2"))) Then
+	     javaws12Installed = 0
+	  Else
+	     javaws12Installed = 1
+	  End If
+	  If Not(IsObject(CreateObject("JavaWebStart.isInstalled.1.5.0"))) Then
+	     javaws142Installed = 0
+	  Else
+	     javaws142Installed = 1
+	  End If
+	End If
+	</SCRIPT>
+
+  <CENTER><BR><BR><BR>
+    <IMG SRC="images/logo1.png"><BR><BR><BR>
+	<SCRIPT LANGUAGE="JavaScript">
+	/* Note that the logic below always launches the JNLP application
+	 *if the browser is Gecko based. This is because it is not possible
+	 *to detect MIME type application/x-java-jnlp-file on Gecko-based browsers.
+	 *
+	 *  Modify the line below to have the correct URL
+	 *
+	 */
+	if (javawsInstalled || (navigator.userAgent.indexOf("Gecko") !=-1)) {
+		var href = document.location.href;
+	    var pos = href.lastIndexOf("/");
+	    var path = href.substring(0,pos+1);
+	    document.write("<FONT SIZE=+2><B><a href="+path+"RecipeManager.jnlp>Launch the BlackMUD Reciupe Manager</a></B></FONT>");
+	} else {
+	    document.write("You do not have the correct version of Java.  You need to download and install JRE 1.5 or newer.");
+	}
+	</SCRIPT>
+	<BR><BR><BR>
+	<TABLE BORDER=0 WIDTH=400>
+	  <TR>
+	    <TD>
+	      <!--<FONT COLOR=red><B>WARNING: </B>This application is still in the <B>ALPHA</B> stage of development.  DO NOT use
+	        this application to build production areas and expect to be able to load your saved files in the future.<BR>
+	        <I>This application is for EVALUATION ONLY</I>
+	      </FONT>-->
+	    </TD>
+	  </TR>
+	</TABLE>
+  </CENTER>
+  </body>
+</html>

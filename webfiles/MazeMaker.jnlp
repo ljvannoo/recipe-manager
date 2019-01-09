@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp
+  spec="1.0+"
+  codebase="http://blackmud.delvern.com/recipemanager/"
+  href="RecipeManager.jnlp">
+  <information>
+    <title>Recipe Manager</title>
+    <vendor>Dented Armor Productions, LLC</vendor>
+    <homepage href="./index.html"/>
+    <description>BlackMUD Recipe Manager</description>
+    <offline-allowed/>
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+" initial-heap-size="64m" max-heap-size="256m"/>
+    <jar href="./RecipeManager.jar"/>
+    <jar href="./mysql-connector-java-5.1.5-bin.jar"/>
+  </resources>
+  <application-desc main-class="com.blackmud.tools.RecipeManager.RecipeManager">
+  </application-desc>
+</jnlp> 
